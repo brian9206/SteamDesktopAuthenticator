@@ -78,6 +78,10 @@ namespace Steam_Desktop_Authenticator
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // create auto fill auth code service
+            var service = AutoFillAuthCodeService.GetInstance();
+            service.Start();
+
             Manifest man = Manifest.GetManifest();
             if (man.FirstRun)
             {

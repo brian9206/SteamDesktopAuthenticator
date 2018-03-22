@@ -1,3 +1,6 @@
 [submodule "lib/SteamAuth"]
 	path = lib/SteamAuth
 	url = git://github.com/geel9/SteamAuth
+[submodule "lib/SteamMemLib"]
+	path = lib/SteamMemLib
+	url = git://github.com/brian9206/SteamMemLib

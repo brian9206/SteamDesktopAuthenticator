@@ -13,13 +13,22 @@ namespace Steam_Desktop_Authenticator
 {
     public partial class MainForm : Form
     {
+        #region "Singleton"
+        private static MainForm instance = null;
+
+        public static MainForm GetInstance()
+        {
+            return instance;
+        }
+        #endregion
+
         private SteamGuardAccount currentAccount = null;
-        private SteamGuardAccount[] allAccounts;
+        public SteamGuardAccount[] allAccounts;
         private List<string> updatedSessions = new List<string>();
         private Manifest manifest;
         private static SemaphoreSlim confirmationsSemaphore = new SemaphoreSlim(1, 1);
 
-        private long steamTime = 0;
+        public long steamTime = 0;
         private long currentSteamChunk = 0;
         private string passKey = null;
         private bool startSilent = false;
@@ -30,6 +39,7 @@ namespace Steam_Desktop_Authenticator
         public MainForm()
         {
             InitializeComponent();
+            instance = this;
         }
 
         public void SetEncryptionKey(string key)
@@ -79,7 +89,7 @@ namespace Steam_Desktop_Authenticator
             loadSettings();
             loadAccountsList();
 
-            checkForUpdates();
+            //checkForUpdates();
 
             if (startSilent)
             {
@@ -198,18 +208,6 @@ namespace Steam_Desktop_Authenticator
             {
                 passKey = manifest.PromptSetupPassKey();
                 this.loadAccountsList();
-            }
-        }
-
-        private void labelUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (newVersion == null || currentVersion == null)
-            {
-                checkForUpdates();
-            }
-            else
-            {
-                compareVersions();
             }
         }
 
@@ -661,7 +659,7 @@ namespace Steam_Desktop_Authenticator
         }
 
         // Logic for version checking
-        private Version newVersion = null;
+       /* private Version newVersion = null;
         private Version currentVersion = null;
         private WebClient updateClient = null;
         private string updateUrl = null;
@@ -715,7 +713,7 @@ namespace Steam_Desktop_Authenticator
             {
                 MessageBox.Show("Failed to check for updates.");
             }
-        }
+        }*/
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {

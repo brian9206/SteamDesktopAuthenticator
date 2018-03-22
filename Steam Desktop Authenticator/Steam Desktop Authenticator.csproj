@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Steam_Desktop_Authenticator</RootNamespace>
     <AssemblyName>Steam Desktop Authenticator</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -111,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoFillAuthCodeService.cs" />
     <Compile Include="BrowserRequestHandler.cs" />
     <Compile Include="ConfirmationFormWeb.cs">
       <SubType>Form</SubType>
@@ -238,6 +239,10 @@
     <ProjectReference Include="..\lib\SteamAuth\SteamAuth\SteamAuth.csproj">
       <Project>{5ad0934e-f6c4-4ae5-83af-c788313b2a87}</Project>
       <Name>SteamAuth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib\SteamMemLib\SteamMemLib\SteamMemLib.csproj">
+      <Project>{623273a9-411f-4efa-8bc6-8d789149efcd}</Project>
+      <Name>SteamMemLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

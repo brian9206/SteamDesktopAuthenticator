@@ -20,6 +20,7 @@ namespace Steam_Desktop_Authenticator
             chkCheckAll.Checked = manifest.CheckAllAccounts;
             chkConfirmMarket.Checked = manifest.AutoConfirmMarketTransactions;
             chkConfirmTrades.Checked = manifest.AutoConfirmTrades;
+            chkAutoFillAuthCode.Checked = manifest.AutoFillAuthCode;
 
             SetControlsEnabledState(chkPeriodicChecking.Checked);
 
@@ -49,6 +50,7 @@ namespace Steam_Desktop_Authenticator
             manifest.CheckAllAccounts = chkCheckAll.Checked;
             manifest.AutoConfirmMarketTransactions = chkConfirmMarket.Checked;
             manifest.AutoConfirmTrades = chkConfirmTrades.Checked;
+            manifest.AutoFillAuthCode = chkAutoFillAuthCode.Checked;
             manifest.Save();
             this.Close();
         }
